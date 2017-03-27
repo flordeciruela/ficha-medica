@@ -3,32 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+		<link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
+				<h1>Ficha Médica</h1>
+        <form id="ficha-medica">
 
-        <form id="ficha-medica" method="post">
             <label for="nombre">Nombre: </label>
-            <input type="text" id="nombre" name="" value="">
-            <br>
+            <input type="text" id="nombre" class="datos"><br>
+						<span class="error_menssage"></span><br>
+
             <label for="apellido">Apellido: </label>
-            <input type="text" id="apellido" name="" value="">
-            <br>
+            <input type="text" id="apellido" class="datos"><br>
+						<span class="error_menssage"></span><br>
+
             <label for="edad">Edad: </label>
-            <input type="number" id="edad" name="" value="">
-            <br>
+            <input type="number" id="edad" class="datos" min="1" max="110"><br>
+						<span class="error_menssage"></span><br>
+
             <label for="genero">Genero: </label>
-            <select id="genero">
+            <select id="genero" class="datos">
             <option value=""></option>
             <option value="femenino">femenino</option>
             <option value="masculino">masculino</option>
-            </select>
-            <br>
+            </select><br>
+						<span class="error_menssage"></span><br>
+
             <label for="ciudad">Ciudad: </label>
-            <input type="text" id="ciudad" name="" value="">
-            <br>
+            <input type="text" id="ciudad" class="datos"><br>
+						<span class="error_menssage"></span><br>
+
             <label for="pais">Pais: </label>
-            <input type="text" id="pais" name="" value="">
-            <br>
+            <input type="text" id="pais" class="datos"><br>
+						<span class="error_menssage"></span><br>
+
             <input type="submit" id="submit" name="" value="Registrar">
         </form>
 

@@ -40,3 +40,62 @@ var pacientes = new Array();  //Crea Array vacio
                       };
 
   }
+
+	var nombreP = document.getElementById("nombre");
+	var apellidoP = document.getElementById("apellido");
+	var ciudadP = document.getElementById("ciudad");
+	var paisP = document.getElementById("pais");
+
+//Funciones para validar inputs al escribir:
+	var soloLetras = function(e){
+		var codigoTecla = e.keyCode;
+		console.log(codigoTecla);
+		if((codigoTecla >= 97 && codigoTecla <= 122) ||
+		   (codigoTecla >= 65 && codigoTecla <= 90) ||
+			 (codigoTecla == 32) || (codigoTecla == 39)) {
+			return true
+		} else {
+			return false
+		}
+	}
+	nombreP.onkeypress=soloLetras; // Ejecutando la funcion para cada input.
+	apellidoP.onkeypress=soloLetras;
+	ciudadP.onkeypress=soloLetras;
+	paisP.onkeypress=soloLetras;
+
+	var edadP = document.getElementById("edad");
+	edadP.onkeypress=function(e){
+		var codigoTecla = e.keyCode;
+		console.log(codigoTecla)
+		if(codigoTecla >= 48 && codigoTecla <= 57 && this.value.length < 2) { //si valor es max 2 digitos.
+			return true
+		} else {
+			return false
+		}
+	}
+
+//funcion para validar que inputs no esten vacios:
+
+	var inputs = document.getElementsByClassName('datos');
+	var completarDatos = function(e){
+
+		if(this.value.trim().length== 0) {
+			this.value ="";
+			this.nextElementSibling.nextElementSibling.innerText= "* Este campo es obligatorio.";
+		} else {
+			this.nextElementSibling.nextElementSibling.innerText= "";
+		}
+
+		if(this.getAttribute("type")== "text") { //Si es un input texto: capitalizar.
+			var result = "";
+			var names = this.value.split(" ");
+			for(var i = 0 ; i < names.length ; i++) {
+				result += names[i][0].toUpperCase() + names[i].substring(1).toLowerCase() + " ";
+			}
+			this.value = result;
+		}
+
+	}
+	for (var i in inputs) { //Ejecutar la funcion completar datos por c/input.
+	inputs[i].onblur=completarDatos;
+	}
