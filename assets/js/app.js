@@ -18,9 +18,12 @@ var pacientes = new Array();  //Crea Array vacio
 							error.innerText = "* Completa todos los campos.";
 						} else {
 							error.innerText = "";
-							pacientes.push(new Paciente(nombre, apellido, edad, genero, ciudad, pais));  //inserta objeto nuevo en Array
-		          imprimir.appendChild(pacientes[pacientes.length -1].mostrarHtml());   //mostrando ultimo objeto de Array con su metodo mostrar
+							//pacientes.push(new Paciente(nombre, apellido, edad, genero, ciudad, pais));  //inserta objeto nuevo en Array
+							localStorage.setItem("paciente",JSON.stringify(new Paciente(nombre, apellido, edad, genero, ciudad, pais)));
+
+		          //imprimir.appendChild(pacientes[pacientes.length -1].mostrarHtml());   //mostrando ultimo objeto de Array con su metodo mostrar
 		          document.getElementById("ficha-medica").reset();  // limpiar formulario
+							window.location.href= "paciente.html";
 						}
 
   });
