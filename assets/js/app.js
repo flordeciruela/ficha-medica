@@ -11,10 +11,17 @@ var pacientes = new Array();  //Crea Array vacio
           var ciudad = document.getElementById('ciudad').value;
           var pais = document.getElementById('pais').value;
           var imprimir = document.getElementById('print');
+					var error = document.getElementById("error_form");
 
-          pacientes.push(new Paciente(nombre, apellido, edad, genero, ciudad, pais));  //inserta objeto nuevo en Array
-          imprimir.appendChild(pacientes[pacientes.length -1].mostrarHtml());   //mostrando ultimo objeto de Array con su metodo mostrar
-          document.getElementById("ficha-medica").reset();  // limpiar formulario
+						if(nombre.length ==0 || apellido.length ==0 || edad.length ==0 || genero.length ==0 || ciudad.length ==0 || pais.length==0) {
+
+							error.innerText = "* Completa todos los campos.";
+						} else {
+							error.innerText = "";
+							pacientes.push(new Paciente(nombre, apellido, edad, genero, ciudad, pais));  //inserta objeto nuevo en Array
+		          imprimir.appendChild(pacientes[pacientes.length -1].mostrarHtml());   //mostrando ultimo objeto de Array con su metodo mostrar
+		          document.getElementById("ficha-medica").reset();  // limpiar formulario
+						}
 
   });
 
@@ -49,7 +56,7 @@ var pacientes = new Array();  //Crea Array vacio
 //Funciones para validar inputs al escribir:
 	var soloLetras = function(e){
 		var codigoTecla = e.keyCode;
-		console.log(codigoTecla);
+		//console.log(codigoTecla);
 		if((codigoTecla >= 97 && codigoTecla <= 122) ||
 		   (codigoTecla >= 65 && codigoTecla <= 90) ||
 			 (codigoTecla == 32) || (codigoTecla == 39)) {
@@ -66,7 +73,7 @@ var pacientes = new Array();  //Crea Array vacio
 	var edadP = document.getElementById("edad");
 	edadP.onkeypress=function(e){
 		var codigoTecla = e.keyCode;
-		console.log(codigoTecla)
+		//console.log(codigoTecla)
 		if(codigoTecla >= 48 && codigoTecla <= 57 && this.value.length < 2) { //si valor es max 2 digitos.
 			return true
 		} else {

@@ -11,38 +11,18 @@ display: inline-block;
 text-align: left;
 }
 
-#nombre {
-margin: 5px 5px 5px 5px;
-}
-
-#apellido {
-margin: 5px 5px 5px 2px;
-}
-
-#edad {
-margin: 5px 5px 5px 25px;
-}
-
-#ciudad {
-margin: 5px 5px 5px 10px;
-}
-
-#pais {
-margin: 5px 5px 5px 29px;
-}
-
 label {
 display: inline-block;
-
+width: 60px;
 }
 
 select {
 padding: 1px;
-margin: 5px 5px 5px 13px;
+width: 173px;
 }
 
-.datos {
-width: 170px;
+#edad {
+width: 169px;
 }
 
 #submit {
